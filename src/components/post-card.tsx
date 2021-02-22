@@ -3,11 +3,11 @@ import MarkdownPreview from '~/components/markdown-preview';
 import TagList from '~/components/tag_list';
 import ShareButtonTwitter from '~/components/share-button-twitter';
 import DeprecationAlert from '~/components/deprecation_alert';
-import { OutputSelectBlogById } from '~/pages/api/blog/select_blog_by_id';
 import { Alert } from '@material-ui/lab';
+import { PostHeader, MicrocmsReqHeader, PostDetail } from '~/types/index';
 
 type PostCardProps = {
-    props: OutputSelectBlogById;
+    props: PostHeader & MicrocmsReqHeader & PostDetail;
 };
 
 const PostCard = ({ props }: PostCardProps): JSX.Element => {

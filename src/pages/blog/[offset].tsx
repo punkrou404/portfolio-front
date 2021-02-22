@@ -6,8 +6,7 @@ import PageHead from '~/components/page-head';
 import { PER_PAGE } from '~/lib/const';
 import { range } from '~/lib/range';
 import SearchInput from '~/components/search-input';
-import { Post } from '~/pages/api/types';
-import { findBlogByOffset } from '../api/blog/find_blog_by_offset';
+import { Post } from '~/types/index';
 
 interface BlogOffsetInput {
     contents: Post[];
@@ -59,7 +58,16 @@ export const getStaticProps = async (context: {
     props: BlogOffsetInput;
 }> => {
     const offset = context.params.offset;
-    const json = await findBlogByOffset({ pageOffset: offset });
+    const pageOffset = String(offset);
+    const res = await fetch(
+        `${process.env.MYDOMAIN_BASEURL}/api/blog?${new URLSearchParams({
+            pageOffset,
+        })}`,
+        {
+            method: 'GET',
+        }
+    );
+    const json = await res.json();
 
     const contents = json.contents;
     const totalCount = json.totalCount;

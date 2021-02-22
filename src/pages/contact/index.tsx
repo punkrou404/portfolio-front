@@ -46,7 +46,7 @@ const Contact: NextPage = (): JSX.Element => {
 
     const onSubmit = async (contact: Contact): Promise<void> => {
         try {
-            const res = await fetch(`/api/contact`, {
+            const res = await fetch(`${process.env.MYDOMAIN_BASEURL}/api/contact`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8',

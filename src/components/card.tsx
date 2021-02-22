@@ -1,7 +1,7 @@
 import Date from '~/components/date';
 import Link from 'next/link';
 import TagList from '~/components/tag_list';
-import { Post } from '~/pages/api/types';
+import { Post } from '~/types/index';
 import { ReactNode } from 'react';
 
 type CardProps = {

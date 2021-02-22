@@ -17,7 +17,7 @@ module.exports = {
                 destination: '/blog/1',
                 permanent: true,
             },
-        ]
+        ];
     },
     webpack: (config, { isServer }) => {
         if (!isServer) {

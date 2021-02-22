@@ -4,7 +4,7 @@ import Card from '~/components/card';
 import PageHead from '~/components/page-head';
 import { NextPageContext } from 'next';
 import SearchInput from '~/components/search-input';
-import { Post } from '~/pages/api/types';
+import { Post } from '~/types/index';
 
 type BlogSearchProps = {
     contents: Post[];

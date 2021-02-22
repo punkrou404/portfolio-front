@@ -2,16 +2,15 @@ import PostCard from '~/components/post-card';
 import { useBreadcrumb } from '~/lib/use-breadcrumb';
 import React from 'react';
 import PageHead from '~/components/page-head';
-import { Post } from '~/pages/api/types';
-import { OutputSelectBlogById } from '~/pages/api/blog/select_blog_by_id';
+import { Post, PostHeader, MicrocmsReqHeader, PostDetail } from '~/types/index';
 
 export interface OutputGetBlogByID {
-    props: OutputSelectBlogById;
+    props: PostHeader & MicrocmsReqHeader & PostDetail;
 }
 
 type blogIdPaths = `/blog/post/${string}`;
 
-const BlogPostId = (props: OutputSelectBlogById): JSX.Element => {
+const BlogPostId = (props: PostHeader & MicrocmsReqHeader & PostDetail): JSX.Element => {
     useBreadcrumb([
         {
             id: 1,
